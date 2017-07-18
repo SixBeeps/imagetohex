@@ -6,5 +6,5 @@ Converts an image into raw hex data for use with [my List Movies project on Scra
 3. Run the executable in this repository. A window will pop up with a text box and two buttons saying "Load..." and "Generate".
 4. Load your spritesheet by pressing the "Load..." button and navigating to it.
 5. Click "Generate". A bunch of hex data will pop up in the text box. You're done!
-##Disclaimer
+## Disclaimer
 The icon (Scratch Cat) used in the executable and provided in this repository DOES NOT belong to me. It is property of MIT.
