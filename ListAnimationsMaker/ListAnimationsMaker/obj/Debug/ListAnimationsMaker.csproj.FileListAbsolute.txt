@@ -1,0 +1,9 @@
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\bin\Debug\ListAnimationsMaker.exe.config
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\bin\Debug\ListAnimationsMaker.exe
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\bin\Debug\ListAnimationsMaker.pdb
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.Form1.resources
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.exe
+c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.pdb
