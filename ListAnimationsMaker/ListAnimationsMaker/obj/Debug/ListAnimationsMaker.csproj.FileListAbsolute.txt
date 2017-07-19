@@ -7,3 +7,6 @@ c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnim
 c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.csproj.GenerateResource.Cache
 c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.exe
 c:\users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.pdb
+C:\Users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\bin\Debug\en\ListAnimationsMaker.resources.dll
+C:\Users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\ListAnimationsMaker.Form1.en.resources
+C:\Users\user\documents\visual studio 2015\Projects\ListAnimationsMaker\ListAnimationsMaker\obj\Debug\en\ListAnimationsMaker.resources.dll
