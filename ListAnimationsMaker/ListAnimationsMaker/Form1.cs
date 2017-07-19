@@ -12,6 +12,7 @@ namespace ListAnimationsMaker
         public Bitmap bmp;
         public bool loaded = false;
         public int blackValue;
+
         public Form1()
         {
             InitializeComponent();
@@ -65,12 +66,18 @@ namespace ListAnimationsMaker
                     for (int x = 0; x < bmp.Width; x++)
                     {
                         if (bmp.GetPixel(x, y) == Color.FromArgb(255, blackValue, blackValue, blackValue))
-                        {
-                            outStr += "1";
+                        { //BLACK
+                            if (!Invert.Checked)
+                                outStr += "1";
+                            else
+                                outStr += "0";
                         }
                         else if (bmp.GetPixel(x, y) == Color.FromArgb(0, 0, 0, 0) || bmp.GetPixel(x, y) == Color.White)
-                        {
-                            outStr += "0";
+                        {//TRANSPARENT
+                            if (!Invert.Checked)
+                                outStr += "0";
+                            else
+                                outStr += "1";
                         }
                         else
                         {
