@@ -38,6 +38,7 @@
             this.bvBox = new System.Windows.Forms.TextBox();
             this.BV = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.Invert = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bvBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,6 +78,7 @@
             // 
             // bvBar
             // 
+            this.bvBar.Cursor = System.Windows.Forms.Cursors.Hand;
             resources.ApplyResources(this.bvBar, "bvBar");
             this.bvBar.Maximum = 50;
             this.bvBar.Name = "bvBar";
@@ -100,10 +102,17 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             // 
+            // Invert
+            // 
+            resources.ApplyResources(this.Invert, "Invert");
+            this.Invert.Name = "Invert";
+            this.Invert.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Invert);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.BV);
             this.Controls.Add(this.bvBox);
@@ -113,7 +122,7 @@
             this.Controls.Add(this.generate);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.loadBtn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bvBar)).EndInit();
@@ -133,6 +142,7 @@
         private System.Windows.Forms.TextBox bvBox;
         private System.Windows.Forms.Label BV;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.CheckBox Invert;
     }
 }
 
