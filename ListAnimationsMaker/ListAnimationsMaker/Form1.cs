@@ -11,6 +11,7 @@ namespace ListAnimationsMaker
     {
         public Bitmap bmp;
         public bool loaded = false;
+        public int blackValue;
         public Form1()
         {
             InitializeComponent();
@@ -19,19 +20,32 @@ namespace ListAnimationsMaker
         private void button1_Click(object sender, EventArgs e) //Load Button
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Portable Network Graphics|*.PNG;";
+            ofd.Filter = "Portable Network Graphics|*.PNG;|JPEG Images|*.JPG;*.JPEG";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(ofd.FileName);
                 Image i = Image.FromStream(sr.BaseStream);
                 bmp = new Bitmap(i);
                 loaded = true;
+                loadBtn.BackColor = Color.LimeGreen;
                 if (bmp.Width%16 != 0 || bmp.Height%9 != 0)
                 {
                     MessageBox.Show("Image is not 16x9. Image is unable to play in List Animations",
                         "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     sr.Close();
                     loaded = false;
+                    //loadBtn.BackColor = Control.DefaultBackColor;
+                    loadBtn.BackColor = Color.Transparent;
+                }
+                if (bmp.Height > 500)
+                {
+                    if (MessageBox.Show("This image is rather big, and turning it into hex could majorly slow down your computer.\nAre you sure you want to use this image?", "Image Warning",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    {
+                        sr.Close();
+                        loaded = false;
+                        loadBtn.BackColor = Control.DefaultBackColor;
+                    }
                 }
             }
         }
@@ -50,21 +64,27 @@ namespace ListAnimationsMaker
                 {
                     for (int x = 0; x < bmp.Width; x++)
                     {
-                        if (bmp.GetPixel(x, y) == Color.FromArgb(255, 0, 0, 0))
+                        if (bmp.GetPixel(x, y) == Color.FromArgb(255, blackValue, blackValue, blackValue))
                         {
                             outStr += "1";
                         }
-                        else if (bmp.GetPixel(x, y) == Color.FromArgb(0, 0, 0, 0))
+                        else if (bmp.GetPixel(x, y) == Color.FromArgb(0, 0, 0, 0) || bmp.GetPixel(x, y) == Color.White)
                         {
                             outStr += "0";
                         }
                         else
                         {
-                            MessageBox.Show("An invalid color (" + bmp.GetPixel(x, y).ToString() + ") was detected. Please use black or transparent.",
-                                "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            break;
+                            if (MessageBox.Show("An invalid color (" + bmp.GetPixel(x, y).ToString() + ") was detected. How would you like to treat this color (Y=Transparent, N=Black)?",
+                                "Image Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                outStr += "0";
+                            } else
+                            {
+                                outStr += "1";
+                            }
                         }
                     }
+                    progressBar.Value = (int)Math.Floor((decimal)(y/bmp.Height))*100;
                 }
                 for (int i = 0; i < outStr.Length / 4; i++)
                 {
@@ -119,7 +139,7 @@ namespace ListAnimationsMaker
                             hex += "F";
                             break;
                         default:
-                            MessageBox.Show("Bin to Hex conversion failed.", "Error",
+                            MessageBox.Show("An invalid binary string was detected. Please contact me if you see this.", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                     }
@@ -136,6 +156,24 @@ namespace ListAnimationsMaker
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://scratch.mit.edu/projects/168707761/#player");
+        }
+
+        private void bvBar_Scroll(object sender, EventArgs e)
+        {
+            blackValue = bvBar.Value;
+            bvBox.Text = blackValue.ToString();
+        }
+
+        private void bvBox_TextChanged(object sender, EventArgs e)
+        {
+            if (Int32.TryParse(bvBox.Text, out blackValue))
+            {
+                if (blackValue >= 0 && blackValue <= 50)
+                    bvBar.Value = blackValue;
+                else
+                    MessageBox.Show("Please enter a number from 0 to 50.", "Hold on a second...",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
     }
 }
